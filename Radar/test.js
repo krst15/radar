@@ -7,7 +7,8 @@
 		bottom: document.querySelector(".bottom"),
 		latest: document.querySelector(".date"),
 		picture: document.querySelector(".picture"),
-		table: document.querySelector(".table"),
+		table: null,
+		tableDiv: document.querySelector(".tableDiv"),
 		collection: [],
 		piclink: ""
 	};
@@ -105,6 +106,14 @@
 	}
 	function getHistory(files) {
 		app.once = true;
+		var table = document.createElement("table");
+		var tr = document.createElement("tr");
+		var th = document.createElement("th");
+		th.innerHTML = "Time";
+		tr.appendChild(th);
+		table.appendChild(tr);
+		app.tableDiv.appendChild(table);
+		app.table = table;
 
 		for (var i = 7; i > 0; i--) {
 			var result = {};

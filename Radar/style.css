@@ -1,8 +1,11 @@
 .picture {
-	width: 25%;
+	width: 100%;
 }
 img {
 	position: absolute;
+	left: 0;
+	right: 0;
+	margin:auto;
 }
 .top {
 	z-index: 2;
@@ -15,8 +18,8 @@ img {
 .timer {
 	float: right;
 }
-.table {
-	float: right;
+.tableDiv {
+	
 }
 table, th, td {
    border: 1px solid black;
@@ -28,12 +31,14 @@ table {
 	border-collapse: collapse;
 }
 .td {
-	width: 200px;
+	width: 150px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.run {
-	position: absolute;
-	bottom: 0px;
-	z-index: 1;
+.wrapper {
+	width: 100%;
+	margin: auto;
+}
+.controls {
+	text-align: center;
 }
