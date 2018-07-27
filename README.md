@@ -12,3 +12,6 @@ En tabell skrivs ut där tidslaget för bilderna visas samt det highlightas vilk
 Man kan gå framåt samt bakåt mha fram och bak knapparna och även köra ett bildspel med alla bilder som sparats i din session.
 
 Varsågod att använd koden. Du får gärna ge mig någon form av kudos för skiten genom att forka den...bara så det ser snyggt ut i statistiken.
+
+# OBS
+Sidan autofetchar varannan minut och kollar efter nyare radarbilder. Vill du ta bort eller ändra detta editera setInterval i main funktionen.
