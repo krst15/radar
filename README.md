@@ -1,7 +1,7 @@
 # radar
 
 ----------
-Fetcha en radarbild från SHHI.se API och visa den på en websida.
+Fetcha en radarbild från SMHI.se API och visa den på en websida.
 
 Fetchar senaste bilden samt de 7 senaste bilderna efter det.
 
