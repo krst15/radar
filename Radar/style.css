@@ -5,7 +5,7 @@ img {
 	position: absolute;
 }
 .top {
-	z-index: 1;
+	z-index: 2;
 }
 .bottom {
 	z-index: 3;
@@ -21,6 +21,9 @@ img {
 table, th, td {
    border: 1px solid black;
 }
+td {
+	cursor: pointer;
+}
 table {
 	border-collapse: collapse;
 }
@@ -28,4 +31,9 @@ table {
 	width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.run {
+	position: absolute;
+	bottom: 0px;
+	z-index: 1;
 }
