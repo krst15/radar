@@ -1,11 +1,18 @@
-.picture {
-	width: 100%;
+body {
+	background-color: #9db2c2;
 }
-img {
+.scaffold {
+	display: block;
+	visibility: hidden;
+	width: 0;
+}
+.picture img {
 	position: absolute;
 	left: 0;
 	right: 0;
 	margin:auto;
+	border: 1px solid black;
+	height:auto;
 }
 .top {
 	z-index: 2;
@@ -16,16 +23,17 @@ img {
 .date {
 }
 .timer {
-	float: right;
+	margin: auto;
 }
 .tableDiv {
-	
+	flex-grow:1;
 }
 table, th, td {
    border: 1px solid black;
 }
-td {
+td:hover {
 	cursor: pointer;
+	background-color: silver;
 }
 table {
 	border-collapse: collapse;
@@ -36,9 +44,26 @@ table {
     text-overflow: ellipsis;
 }
 .wrapper {
-	width: 100%;
+	width: 70%;
+	height: auto;
 	margin: auto;
+	background-color:white;
+	border-radius:10px;
+	display:flex;
+	flex-flow:row;
+	padding:10px;
 }
 .controls {
 	text-align: center;
+}
+.fetcher {
+	margin: auto;
+	border: 1px solid black;
+	margin-top: 15px;
+	border-radius: 10px;
+}
+.fetcher span {
+	display: block;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }

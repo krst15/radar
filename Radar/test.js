@@ -42,7 +42,7 @@
 		var row = app.table.rows;
 		for (var i = 0; i < row.length; i++) {
 			if (row[i].cells[0].textContent == t) {
-				row[i].style = "background-color:silver;font-style:italic;";
+				row[i].style = "background-color:#b2cce0;font-style:italic;";
 			} else {
 				row[i].style = "";
 			}
@@ -102,9 +102,9 @@
 			} else {
 				clearInterval(interval);
 			}
-		}, 500);
+		}, 250);
 	}
-	function getHistory(files) {
+	function runOnce(files) {
 		app.once = true;
 		var table = document.createElement("table");
 		var tr = document.createElement("tr");
@@ -115,7 +115,7 @@
 		app.tableDiv.appendChild(table);
 		app.table = table;
 
-		for (var i = 7; i > 0; i--) {
+		for (var i = 14; i > 0; i--) {
 			var result = {};
 			var link = files[files.length-i].formats[0].link;
 			var date = new Date(files[files.length-i].formats[0].updated).toLocaleString();
@@ -123,6 +123,24 @@
 			result.time = date;
 			app.collection.push(result);
 		}
+		document.querySelector(".back").disabled = false;
+		document.querySelector(".back").addEventListener("click", function() {
+			clear();
+			stepBack();
+		});
+		document.querySelector(".forward").disabled = false;
+		document.querySelector(".forward").addEventListener("click", function() {
+			clear();
+			stepForward();
+		});
+		document.querySelector(".run").disabled = false;
+		document.querySelector(".run").addEventListener("click", function() {
+			clear();
+			run();
+		})
+		setInterval(function() {
+			getRadar();
+		}, 120000);
 	}
 	function getRadar() {
 		var result = {};
@@ -136,7 +154,7 @@
 		.then(function(response) {
 			var files = response.files;
 			if (app.once != true) {
-				getHistory(files);
+				runOnce(files);
 			}
 			var link = files[files.length-1].formats[0].link;
 			var date2 = new Date(files[files.length-1].formats[0].updated).toLocaleString();
@@ -151,19 +169,18 @@
 			app.latest.innerHTML = date2;
 		})
 	}
-	function main() {
-		document.querySelector(".button").addEventListener("click", function() {
-			clear();
-			getRadar();
-		});
+	function activate() {
+		document.querySelector(".back").disabled = false;
 		document.querySelector(".back").addEventListener("click", function() {
 			clear();
 			stepBack();
 		});
+		document.querySelector(".forward").disabled = false;
 		document.querySelector(".forward").addEventListener("click", function() {
 			clear();
 			stepForward();
 		});
+		document.querySelector(".run").disabled = false;
 		document.querySelector(".run").addEventListener("click", function() {
 			clear();
 			run();
@@ -171,6 +188,19 @@
 		setInterval(function() {
 			getRadar();
 		}, 120000);
+	}
+	function main() {
+		document.querySelector(".button").addEventListener("click", function() {
+			clear();
+			getRadar();
+		});
+		if (app.collection.length == 0) {
+			document.querySelector(".back").disabled = true;
+			document.querySelector(".forward").disabled = true;
+			document.querySelector(".run").disabled = true;
+		} else {
+			activate();
+		}
 	};
 	main();
 })();
