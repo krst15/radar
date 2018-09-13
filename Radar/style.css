@@ -1,3 +1,6 @@
+body {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
 .picture {
 	width: 100%;
 }
@@ -6,6 +9,7 @@ img {
 	left: 0;
 	right: 0;
 	margin:auto;
+	border: 1px solid #ddd;
 }
 .top {
 	z-index: 2;
@@ -21,24 +25,45 @@ img {
 .tableDiv {
 	
 }
+th {
+	background-color: #4CAF50;
+	color: white;
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
 table, th, td {
-   border: 1px solid black;
+   border: 1px solid #ddd;
+}
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+	}
+tr:hover {
+	background-color: #ddd;
 }
 td {
 	cursor: pointer;
 }
 table {
 	border-collapse: collapse;
+	width: auto;
 }
 .td {
 	width: 150px;
     overflow: hidden;
     text-overflow: ellipsis;
+	padding: 8px;
 }
 .wrapper {
-	width: 100%;
+	width: 50%;
+	height: 100%;
 	margin: auto;
 }
 .controls {
 	text-align: center;
+}
+.interval{
+	width: auto;
+}
+.iform {
+	display: inline-block;
 }

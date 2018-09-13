@@ -1,5 +1,9 @@
 (function() {
 	'use strict';
+	/** FIREFOX FIX **/
+	window.onload = function() {
+		document.forms.interval.reset();
+	}
 
 	var app = {
 		once: false,
@@ -10,7 +14,8 @@
 		table: null,
 		tableDiv: document.querySelector(".tableDiv"),
 		collection: [],
-		piclink: ""
+		piclink: "",
+		fps: 250
 	};
 	function table() {
 		app.collection.forEach(function(f) {
@@ -102,14 +107,14 @@
 			} else {
 				clearInterval(interval);
 			}
-		}, 500);
+		}, app.fps);
 	}
 	function getHistory(files) {
 		app.once = true;
 		var table = document.createElement("table");
 		var tr = document.createElement("tr");
 		var th = document.createElement("th");
-		th.innerHTML = "Time";
+		th.innerHTML = "Tider";
 		tr.appendChild(th);
 		table.appendChild(tr);
 		app.tableDiv.appendChild(table);
@@ -168,6 +173,9 @@
 			clear();
 			run();
 		})
+		document.querySelector(".interval").onchange = function() {
+			app.fps = document.querySelector(".interval").value;
+		}
 		setInterval(function() {
 			getRadar();
 		}, 120000);
